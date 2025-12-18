@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "discourses"
-version = "1.0.4"
+version = "1.0.8"
 authors = [
     { name = "discourses.io", email = "support@discourses.io" }
 ]
@@ -55,9 +55,9 @@ dev = [
 [project.urls]
 Homepage = "https://discourses.io"
 Documentation = "https://discourses.io/documentation"
-Repository = "https://github.com/discourses/discourses-python"
-Issues = "https://github.com/discourses/discourses-python/issues"
-Changelog = "https://github.com/discourses/discourses-python/releases"
+Repository = "https://github.com/romanmichaelpaolucci/discourses"
+Issues = "https://github.com/romanmichaelpaolucci/discourses/issues"
+Changelog = "https://github.com/romanmichaelpaolucci/discourses/releases"
 
 [tool.setuptools.packages.find]
 where = ["src"]

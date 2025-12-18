@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/discourses/__init__.py
+src/discourses/client.py
+src/discourses/constants.py
+src/discourses/exceptions.py
+src/discourses/models.py
+src/discourses/py.typed
+src/discourses.egg-info/PKG-INFO
+src/discourses.egg-info/SOURCES.txt
+src/discourses.egg-info/dependency_links.txt
+src/discourses.egg-info/requires.txt
+src/discourses.egg-info/top_level.txt

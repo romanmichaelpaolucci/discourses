@@ -1,8 +1,10 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/discourses/discourses-python/main/assets/discourses.png" alt="discourses.io" width="280" />
+  <a href="https://discourses.io" target="_blank">
+    <img src="https://raw.githubusercontent.com/romanmichaelpaolucci/discourses/main/assets/discourses.png" alt="discourses.io" width="140" />
+  </a>
 </p>
 
-<h1 align="center">discourses.io Python SDK</h1>
+<h1 align="center" style="margin-top: 0;">discourses.io Python SDK</h1>
 
 <p align="center">
   <strong>Official Python SDK for discourses.io — the financial social media platform and financial language processing API</strong>
@@ -366,7 +368,7 @@ except DiscoursesError as e:
   </tr>
   <tr>
     <td align="center">💬</td>
-    <td><a href="https://github.com/discourses/discourses-python/issues"><strong>Issues</strong></a><br>Report bugs & requests</td>
+    <td><a href="https://github.com/romanmichaelpaolucci/discourses/issues"><strong>Issues</strong></a><br>Report bugs & requests</td>
     <td align="center">📦</td>
     <td><a href="https://pypi.org/project/discourses/"><strong>PyPI</strong></a><br>Package & versions</td>
   </tr>

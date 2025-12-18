@@ -1,0 +1,6 @@
+requests>=2.25.0
+
+[dev]
+black>=23.0.0
+mypy>=1.0.0
+types-requests>=2.25.0
