@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "discourses"
+version = "1.0.4"
+authors = [
+    { name = "discourses.io", email = "support@discourses.io" }
+]
+description = "Official Python SDK for Discourses — Era-calibrated financial sentiment analysis"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+keywords = [
+    "discourses",
+    "sentiment",
+    "sentiment-analysis",
+    "finance",
+    "fintech",
+    "nlp",
+    "trading",
+    "market-analysis",
+    "api",
+    "sdk"
+]
+dependencies = [
+    "requests>=2.25.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.0.0",
+    "mypy>=1.0.0",
+    "types-requests>=2.25.0",
+]
+
+[project.urls]
+Homepage = "https://discourses.io"
+Documentation = "https://discourses.io/documentation"
+Repository = "https://github.com/discourses/discourses-python"
+Issues = "https://github.com/discourses/discourses-python/issues"
+Changelog = "https://github.com/discourses/discourses-python/releases"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+discourses = ["py.typed"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
