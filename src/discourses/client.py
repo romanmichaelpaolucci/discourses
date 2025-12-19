@@ -61,7 +61,7 @@ class Discourses:
         timeout: int = DEFAULT_TIMEOUT,
     ) -> None:
         if not api_key:
-            raise ValueError("api_key is required")
+            raise ValidationError("api_key is required")
         
         self.api_key = api_key
         self.base_url = base_url.rstrip("/")
