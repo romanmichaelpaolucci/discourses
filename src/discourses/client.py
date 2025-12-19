@@ -148,12 +148,18 @@ class Discourses:
             )
         
         if response.status_code == 429:
-            retry_after = response.headers.get("X-RateLimit-Reset")
+            retry_after_header = response.headers.get("X-RateLimit-Reset")
+            retry_after = None
+            if retry_after_header:
+                try:
+                    retry_after = int(retry_after_header)
+                except (ValueError, TypeError):
+                    pass
             raise RateLimitError(
                 message=message,
                 status_code=response.status_code,
                 response=data,
-                retry_after=int(retry_after) if retry_after else None,
+                retry_after=retry_after,
             )
         
         if response.status_code in (400, 422):
