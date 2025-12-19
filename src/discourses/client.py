@@ -331,3 +331,27 @@ class Discourses:
     
     def __repr__(self) -> str:
         return f"Discourses(base_url='{self.base_url}')"
+
+    def close(self) -> None:
+        """
+        Close the underlying HTTP session.
+
+        This releases connection pool resources. After calling close(),
+        the client should not be used for further requests.
+
+        Example:
+            >>> client = Discourses(api_key="your-key")
+            >>> try:
+            ...     result = client.analyze("text")
+            ... finally:
+            ...     client.close()
+        """
+        self._session.close()
+
+    def __enter__(self) -> "Discourses":
+        """Enter context manager."""
+        return self
+
+    def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
+        """Exit context manager and close session."""
+        self.close()
