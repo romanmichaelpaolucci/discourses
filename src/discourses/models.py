@@ -9,6 +9,26 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
 
+def _safe_float(value: Any, default: float = 0.0) -> float:
+    """Safely convert value to float, returning default on failure."""
+    if value is None:
+        return default
+    try:
+        return float(value)
+    except (ValueError, TypeError):
+        return default
+
+
+def _safe_int(value: Any, default: int = 0) -> int:
+    """Safely convert value to int, returning default on failure."""
+    if value is None:
+        return default
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        return default
+
+
 @dataclass
 class AnalysisResult:
     """
@@ -51,17 +71,17 @@ class AnalysisResult:
         
         return cls(
             label=classification.get("label", "neutral"),
-            confidence=float(classification.get("confidence", 0)),
-            outlook=float(scores.get("outlook", 0)),
+            confidence=_safe_float(classification.get("confidence")),
+            outlook=_safe_float(scores.get("outlook")),
             scores={
-                "bullish": float(scores.get("bullish", 0)),
-                "bearish": float(scores.get("bearish", 0)),
-                "neutral": float(scores.get("neutral", 0)),
-                "confusion": float(scores.get("confusion", 0)),
+                "bullish": _safe_float(scores.get("bullish")),
+                "bearish": _safe_float(scores.get("bearish")),
+                "neutral": _safe_float(scores.get("neutral")),
+                "confusion": _safe_float(scores.get("confusion")),
             },
-            word_count=int(analysis.get("word_count", 0)),
-            matched_count=int(analysis.get("matched_count", 0)),
-            negation_count=int(analysis.get("negation_count", 0)),
+            word_count=_safe_int(analysis.get("word_count")),
+            matched_count=_safe_int(analysis.get("matched_count")),
+            negation_count=_safe_int(analysis.get("negation_count")),
             raw=data,
         )
     
