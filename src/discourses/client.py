@@ -135,7 +135,7 @@ class Discourses:
         except ValueError:
             data = {"message": response.text or "Unknown error"}
         
-        if response.status_code == 200:
+        if response.ok:
             return data
         
         message = data.get("message", data.get("error", "Unknown error"))
