@@ -32,7 +32,7 @@
 
 [discourses.io](https://discourses.io) is a **financial social media platform** and **financial language processing API** built for the modern market.
 
-Traditional sentiment analysis treats language as static. But financial language evolves—"diamond hands" meant nothing in 2008, but signals strong conviction today. **discourses.io** solves this with **era-calibrated lexicons** built on peer-reviewed academic research.
+Traditional sentiment analysis treats language as static. But financial language evolves—"diamond hands" meant nothing in 2008, but signals strong conviction today. **discourses.io** solves this with **era-calibrated lexicons** built on academic and industrial quantitative research.
 
 | Era | Period | What It Captures |
 |:---:|:------:|:-----------------|

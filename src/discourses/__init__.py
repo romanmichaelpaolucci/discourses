@@ -24,7 +24,7 @@ Basic Usage:
 For more information, visit https://discourses.io/documentation
 """
 
-__version__ = "1.0.8"
+__version__ = "1.0.9"
 __author__ = "discourses.io"
 __email__ = "support@discourses.io"
 
