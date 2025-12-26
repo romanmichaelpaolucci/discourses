@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: discourses
-Version: 1.0.9
+Version: 1.1.0
 Summary: Official Python SDK for Discourses — Era-calibrated financial sentiment analysis
 Author-email: "discourses.io" <support@discourses.io>
 License: MIT
@@ -71,11 +71,12 @@ Dynamic: license-file
 
 Traditional sentiment analysis treats language as static. But financial language evolves—"diamond hands" meant nothing in 2008, but signals strong conviction today. **discourses.io** solves this with **era-calibrated lexicons** built on academic and industrial quantitative research.
 
-| Era | Period | What It Captures |
-|:---:|:------:|:-----------------|
-| **primitive** | Pre-2015 | Traditional financial vocabulary, formal market language |
-| **meme** | 2015–2021 | Rise of retail trading, WSB culture, crypto slang |
-| **present** | 2021–now | Modern market discourse, post-meme institutionalization |
+| Era | Period | Lexicon | Use Case |
+|:---:|:------:|:-------:|:---------|
+| **Primitive** | < 2016 | 5,557 tokens | Historical filings, early Twitter, pre-social sentiment |
+| **Ramp** | 2016 — 2019 | 7,751 tokens | Fintech emergence, crypto adoption, algorithmic trading era |
+| **Meme** | 2019 — 2023 | 9,822 tokens | WSB, Reddit, meme stocks, retail revolution vernacular |
+| **Present** | > 2023 | 11,195 tokens | Current analysis with aggregate of all eras |
 
 ---
 
@@ -198,7 +199,7 @@ client = Discourses(api_key="your-api-key")
 # Compare sentiment across eras
 result = client.compare_eras(
     text="This stock is going to the moon! Diamond hands!",
-    eras=["primitive", "meme", "present"]
+    eras=["primitive", "ramp", "meme", "present"]
 )
 
 # View per-era results
@@ -222,6 +223,7 @@ print(f"Peak Era:        {result.drift['peak_era']}")
 Era-by-Era Sentiment:
 --------------------------------------------------
   primitive    bullish        (outlook: 0.6912)
+  ramp         bullish        (outlook: 0.7845)
   meme         very_bullish   (outlook: 0.9933)
   present      very_bullish   (outlook: 0.9977)
 
@@ -332,21 +334,25 @@ Failed:    0
 |----------|-----------------|
 | Modern social media sentiment | `present` |
 | Meme stock / crypto analysis | `meme` |
+| Fintech / crypto adoption era | `ramp` |
 | Traditional financial news | `primitive` |
 | Understanding semantic drift | `compare_eras()` |
 
 ```python
-# Modern analysis
+# Modern analysis (> 2023)
 client.analyze(text, era="present")
 
-# Meme-era analysis (WSB, crypto culture)
+# Meme-era analysis (2019-2023, WSB, crypto culture)
 client.analyze(text, era="meme")
 
-# Traditional financial language
+# Ramp era (2016-2019, fintech emergence)
+client.analyze(text, era="ramp")
+
+# Traditional financial language (< 2016)
 client.analyze(text, era="primitive")
 
 # Compare across all eras
-client.compare_eras(text, eras=["primitive", "meme", "present"])
+client.compare_eras(text, eras=["primitive", "ramp", "meme", "present"])
 ```
 
 ---
